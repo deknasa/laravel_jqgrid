@@ -28,6 +28,7 @@
     <script src="https://unpkg.com/inputmask@4.0.4/dist/inputmask/inputmask.date.extensions.js"></script> -->
     <script src="{{ asset('js/scriptUI.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/scriptGrid.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/highlight.js') }}" type="text/javascript"></script>
 </head>
 <body>
     <div>

@@ -122,7 +122,6 @@ class IndexController extends Controller
         DB::beginTransaction();
         try {
             $result = $penjualanModel->updatePenjualan($sname, $sorder, $request, $id);
-
             // dd($sname, $sorder, $result['count']);
 
             DB::commit();

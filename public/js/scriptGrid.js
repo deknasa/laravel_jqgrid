@@ -1,6 +1,7 @@
 $(document).ready(function() {
     let selectedRow = null
     let activeGrid = '#grid'
+    // let searchValue
 
     $('#grid').jqGrid({
         url: 'dataPenjualan',
@@ -45,6 +46,7 @@ $(document).ready(function() {
                 $("#grid").jqGrid('setSelection', selectedRow)
             }
             highlight()
+            // $('#grid tbody tr td').highlight(searchValue)
         }
     })
 
@@ -479,7 +481,7 @@ $(document).ready(function() {
                     datatype: 'json'
                 }).trigger('reloadGrid');
             }
-        }, 800)
+        }, 1200)
     })
 
     $("#gsh_grid_rn").append(`<a title="Reset Search Value" tabindex="0" id="clearAll" class="clearsearchclass">x</a>`)

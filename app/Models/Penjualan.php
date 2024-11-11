@@ -70,7 +70,7 @@ class Penjualan extends Model
 
     public function createPenjualan($request){
         $total = str_replace(',', '', $request->input('total'));
-        $tgl_bukti = date("Y-m-d", strtotime($request->input('tgl_bukti', null)));
+        $tgl_bukti = date("Y-m-d", strtotime($request->input('tgl_bukti')));
         $detailModel = new DetailPenjualan();
 
         $lastData = DB::table('tb_penjualan')
@@ -79,7 +79,6 @@ class Penjualan extends Model
         ->lockForUpdate()
         ->orderBy('no_bukti', 'desc')
         ->first();
-        // dd($lastData);
         
         $lastNb = explode("NB-", $lastData->no_bukti);
         $getNumber = $lastNb[1];
@@ -135,9 +134,8 @@ class Penjualan extends Model
     }
 
     public function updatePenjualan($sname, $sorder, $request, $id){
-        $no_bukti = $request->input('no_bukti', null);
-        $tgl_bukti = date("Y-m-d", strtotime($request->input('tgl_bukti', null)));
-        $id_pelanggan = $request->input('id_pelanggan', null);
+        $tgl_bukti = date("Y-m-d", strtotime($request->input('tgl_bukti')));
+        $id_pelanggan = $request->input('id_pelanggan');
         $total = str_replace(',', '', $request->input('total'));
         
         $detailModel = new DetailPenjualan();
@@ -162,13 +160,10 @@ class Penjualan extends Model
         ->orderBy($sname, $sorder)
         ->get()->toArray();
         
-        
         $count = array_search($id, array_column($allData, 'id'));
         // $count = array_search($id, $allData);
         $detailModel->updateDetail($request, $id);
-        // $total = $detailModel->updateDetail($request, $id);
-        // DB::table('tb_penjualan')->where('id', $id)->update(['total' => $total]);
-        dd($sname, $sorder, $count, $id, $allData);
+        // dd($sname, $sorder, $count, $id, $allData);
 
         return [ "count" => $count + 1 ];
     }   
@@ -195,7 +190,6 @@ class Penjualan extends Model
                 $newId = $allData[$count]->id;
             }
         }
-        // dd($currentIdx, $newId, $count);
 
         $detailModel->deleteDetail($id);
 
@@ -253,24 +247,9 @@ class Penjualan extends Model
         ->skip($offset)
         ->take($limit)
         ->get();
-
-        // $id;
-        // foreach ($query as $item) {
-        //     $id[] = [
-        //         "id" => $item->id
-        //     ];
-        //     $a = $detailModel->getDetailExportReport($id);
-        //     dd($id);
-        //     return $id;
-        //     // dd($a);
-        // }
-        
-        // $a = $detailModel->getDetailExportReport($id);
-        // // dd($id);
         
         return [ 
             "data" => $query, 
-            // "detail" => $a 
         ];
     }
     
