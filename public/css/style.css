@@ -1,0 +1,56 @@
+html, body { margin: 5px; padding: 0; font-size: 75%; }
+.data_master{ padding: 80px; }
+/* #dialog{ font-size: 80% } */
+/* .jquery_dialog{ font-size: .8em; } */
+.ipt{
+    margin-bottom: 10px;
+    margin-left: 25px;
+    box-sizing: border-box;
+}
+.ipt2 {
+    margin-left: 55px;
+}
+.quantity {
+    /* direction: rtl; */
+    text-align: right;
+}
+.harga {
+    text-align: right;
+}
+.total2 {
+    text-align: right;
+}
+#start {
+    text-align: right;
+}
+#end {
+    text-align: right;
+}
+.select2-container {
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+.ui-dialog .ui-dialog-content {
+    font-size: small
+}
+.ui-button { 
+    background-color: transparent;
+    font-size: larger;
+    padding: 6px 10px 6px 10px;
+}
+.ui-dialog-title{
+    font-size: 12px;
+}
+.ui-jqgrid .ui-jqgrid-caption {
+    text-align: center;
+}
+.ui-jqgrid .ui-jqgrid-titlebar {
+    height: 25px;
+}
+.ui-jqgrid-title {
+    font-size: 20px;
+}
+.ui-jqgrid .ui-userdata {
+    height: 30px;
+    font-size: larger;
+}
